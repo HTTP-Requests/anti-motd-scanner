@@ -75,8 +75,13 @@ Many scanners will try and join your server, maybe to greif? explore? be nice? T
 ## Testing
 Ive tested this using the methods real scanners use (mcstatus) and simple minecraft clients.
 
+**Server scanner when AMS is enabled VS disabled*:**<br>
 ![Server scanner when AMS is enabled VS disabled.](https://cdn.akjr.xyz/ams/ams-before-and-after-join.png)
-![What you see if your not in ipcache](https://cdn.akjr.xyz/ams/ams-in-action.png)
+
+**What you see if your not in ipcache:**<br>
+![What you see if your not in ipcache](https://cdn.akjr.xyz/ams/ams-in-action.png)<br>
+
+**Mass Scan Result:**<br>
 ![Mass Scan AMS](https://cdn.akjr.xyz/ams/amsmasscan.png)
 
 # Config File.
