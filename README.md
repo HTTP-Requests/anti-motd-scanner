@@ -1,5 +1,5 @@
 # Anti-MOTD-Scanner AMS (Paper Version)
-This plugin is meant for smaller PRIVATE servers that want to stay hidden. It prevents ServerListPing events from people who have never joined the server. It prevents less specialized/advanced automatic 
+This plugin is meant for smaller PRIVATE servers that want to stay hidden (really helps cracked servers). It prevents ServerListPing events from people who have never joined the server. It prevents less specialized/advanced automatic 
 scanners from finding your server.  It can't prevent more advanced scanners from joining with an account as this plugin does not interfere with the join process. This is a newer plugin, all suggestions are welcome!
 Download at:
 https://modrinth.com/project/anti-motd-scanner
@@ -18,22 +18,33 @@ changed the servers IP and added this plugin the rate is so much lower! This is 
 It CAN'T prevent scanners that use a MC account from joining as theirs no real way to tell whos a scanner and a real player, if there is this plugin does not do this.
 This plugin does not check if the IP is a VPN/PROXy, theres plenty of other plugins that do that.
 
-## Why scanners are bad:
-Many scanners are used by malicious actors or just curious players. Ive used massscan & mcstatus to scan servers before (thankfully not for malicious reasons) and ive got 1000s of servers, its really easy. This plugin is meant to take out the lower level script kiddie type scanners and even automated campaigns.
+## Why scanners are bad/why this matters:
+It may not matter for you, depends if you care.
+Many scanners are used by malicious actors or just curious players. Ive used massscan & mcstatus to scan servers before (thankfully not for malicious reasons) and ive got 1000s of servers, its really easy. This plugin is meant to take out the lower level script kiddie type scanners and even automated campaigns. If your server can't use a whitelist for whatever reason or is cracked with no login plugin (for whatever reason) this may help.
 
 Many scanners will try and join your server, maybe to greif? explore? be nice? There is no way to know and it only takes 1 to ruin the day.
 
 ## Commands
 `/ams` - Info command
+
 `/ams-reload` - Reloads the config, requires OP
+
 `/ams-purge-cache` - Deletes content of ipcache.txt (you can also just delete the files data manually)
 
+
 # FAQ
+**Why does this matter? So what if scanners have my servers IP i have a whitelist and it isnt cracked!**
+> Don't want it? Then dont install it. This is helpful for;
+- Servers that don't have awhitelist
+- Cracked servers with no long-in plugin
+- Servers you host on your home IP
+- When you dont want your servers IP in a active mc server database.
+
 **If joining the server adds there IP to cache (whitelist)... what about scanners that use MC accounts?**
-> As said before, this plugin doesn't deal with the client join process.
+> As said before, this plugin doesn't deal with the client join process. If your server isn't cracked turn on the whitelist if you can.
 
 **Is this meant for big servers with 100+ players or public servers?**
-> No, if your server is public and you block ServerListPings players who have never joined/has a new IP will not see your motd. It is meant for private servers that wish to stay hidden?
+> No, if your server is public and you block ServerListPings players who have never joined/has a new IP will not see your motd and you may want this. It is meant for private servers that wish to stay hidden.
 
 **Can I use ipcache as a whitelist and turn updating off when players join?**
 > Yes, set enable-ipcache to false
