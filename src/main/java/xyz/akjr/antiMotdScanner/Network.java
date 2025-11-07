@@ -155,6 +155,8 @@ public class Network implements Listener {
     }
 
     private void log(String message) {
+        String lastMessage = null;
+        int repeatCount = 1;
         try {
             File logFile = new File(plugin.getDataFolder(), "/ip-data/blocked-motd-logs.txt");
             if (!logFile.exists()) {
