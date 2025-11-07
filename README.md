@@ -90,18 +90,18 @@ Explanation on how to use the config is inside `config.yml` although heres a mor
 ```yml
 # This blocks all pings that don't come from IP's inside ipcache.txt, for an IP to be inside
 # this file the player must join or be manually added.
-`block-unknown-pings: true`
+block-unknown-pings: true
 
 # When a player joins the server there IP is stored into this file
 # "block-unknown-pings" will block all IP's that are NOt inside this file.
 # if disabled it will no longer add newer IP's, you can also manually add IP's
-`enable-ipcache: true`
+enable-ipcache: true
 
 # Logs all instances of MOTD pings into motd-ping-logs.txt
-`log-all-motd-pings: true`
+log-all-motd-pings: true
 
 # Logs all blocked MOTD pings into blocked-motd-logs.txt
-`log-blocked-motd-pings: true`
+log-blocked-motd-pings: true
 
 # If the same IP gets logged into the file more than once in order it will stack it with (x2 or x5)
 # This prevents the same message from being "spammed" many times. If you don't understand this set it to false.
