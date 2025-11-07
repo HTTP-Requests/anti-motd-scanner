@@ -1,4 +1,4 @@
-# Anti-MOTD-Scanner AMS (Paper Version)
+# Anti-MOTD-Scanner AMS
 ## Please view the FAQ!
 This plugin is meant for smaller PRIVATE servers that want to stay hidden (really helps cracked servers). It prevents ServerListPing events from people who have never joined the server. It prevents less specialized/advanced automatic 
 scanners from finding your server. It can't prevent TCP scans (change your defaut port from 25565) and it can't prevent more advanced scanners from joining with an account as this plugin does not interfere with the join process. This is a newer plugin, all suggestions are welcome!
@@ -71,6 +71,9 @@ Many scanners will try and join your server, maybe to greif? explore? be nice? T
 
 **This is a dumb idea/i dont like how you did this**
 > Im new here, cut me some slack. Bug reports/suggestions are welcomed in issues.
+
+**Why did you make this?**
+> I operate a smaller private server and scanners kept pinging and trying to join the server, it is cracked with no longin plugins (per requested by owners) so i did something about it and decided to make it public.
 
 ## Testing
 Ive tested this using the methods real scanners use (mcstatus) and simple minecraft clients.
