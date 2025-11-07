@@ -1,0 +1,15 @@
+name: Anti-Motd-Scanner
+version: '0.1-ALPHA'
+main: xyz.akjr.antiMotdScanner.AntiMotdScanner
+api-version: '1.21'
+depend: [ProtocolLib]
+commands:
+  ams-reload:
+    description: 'Reload AntiMotdScanner'
+    usage: '/ams-reload'
+  ams:
+    description: 'AntiMotdScanner About'
+    usage: '/ams'
+  ams-purge-cache:
+    description: 'Purge ipcache.txt'
+    usage: '/ams-purge-cache'
