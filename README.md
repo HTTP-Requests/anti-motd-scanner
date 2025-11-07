@@ -1,6 +1,7 @@
 # Anti-MOTD-Scanner AMS (Paper Version)
+## Please view the FAQ!
 This plugin is meant for smaller PRIVATE servers that want to stay hidden (really helps cracked servers). It prevents ServerListPing events from people who have never joined the server. It prevents less specialized/advanced automatic 
-scanners from finding your server.  It can't prevent more advanced scanners from joining with an account as this plugin does not interfere with the join process. This is a newer plugin, all suggestions are welcome!
+scanners from finding your server. It can't prevent TCP scans (change your defaut port from 25565) and it can't prevent more advanced scanners from joining with an account as this plugin does not interfere with the join process. This is a newer plugin, all suggestions are welcome!
 
 Download at:
 https://modrinth.com/project/anti-motd-scanner
@@ -43,6 +44,9 @@ Many scanners will try and join your server, maybe to greif? explore? be nice? T
 > - Servers you host on your home IP
 > - When you dont want your servers IP in a active mc server database.
 
+**Can simple TCP/IP Scanners still ping the IP/PORT**
+> Yes, the port isn't closed as this works at the plugin level not the network layer. Its suggested to change your default port (25565) to something random. Many server hosts already do this. 
+
 **If joining the server adds there IP to cache (whitelist)... what about scanners that use MC accounts?**
 > As said before, this plugin doesn't deal with the client join process. If your server isn't cracked turn on the whitelist if you can.
 
@@ -68,6 +72,9 @@ Many scanners will try and join your server, maybe to greif? explore? be nice? T
 **This is a dumb idea/i dont like how you did this**
 > Im new here, cut me some slack. Bug reports/suggestions are welcomed in issues.
 
+## Testing
+Ive tested this using the methods real scanners use (mcstatus) and simple minecraft clients.
+
 # Config File.
 Explanation on how to use the config is inside `config.yml` although heres a more in depth explanation;
 ```yml
@@ -91,30 +98,18 @@ Explanation on how to use the config is inside `config.yml` although heres a mor
 stack-same-ips: true
 ```
 
-Example with this setting off:
+Example with this setting off:<br>
+Blocked StatusRequest from 127.0.0.1<br>
+Blocked StatusRequest from 127.0.0.1<br>
+Blocked StatusRequest from 127.0.0.1<br>
+Blocked StatusRequest from 127.0.0.1<br>
+Blocked StatusRequest from 127.0.0.3<br>
+Blocked StatusRequest from 127.0.0.1<br>
+Blocked StatusRequest from 127.0.0.1<br>
+Blocked StatusRequest from 127.0.0.2<br>
 
-Blocked StatusRequest from 127.0.0.1
-
-Blocked StatusRequest from 127.0.0.1
-
-Blocked StatusRequest from 127.0.0.1
-
-Blocked StatusRequest from 127.0.0.1
-
-Blocked StatusRequest from 127.0.0.3
-
-Blocked StatusRequest from 127.0.0.1
-
-Blocked StatusRequest from 127.0.0.1
-
-Blocked StatusRequest from 127.0.0.2
-
-Example with this setting on:
-
-Blocked StatusRequest from 127.0.0.1 (x3)
-
-Blocked StatusRequest from 127.0.0.3
-
-Blocked StatusRequest from 127.0.0.1 (x2)
-
-Blocked StatusRequest from 127.0.0.2
+Example with this setting on:<br>
+Blocked StatusRequest from 127.0.0.1 (x3)<br>
+Blocked StatusRequest from 127.0.0.3<br>
+Blocked StatusRequest from 127.0.0.1 (x2)<br>
+Blocked StatusRequest from 127.0.0.2<br>
