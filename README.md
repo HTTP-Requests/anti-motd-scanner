@@ -19,7 +19,7 @@ It can prevent automated scanners that don't join the server with a minecraft ac
 (ServerListPing/StatusRequest What sends clients the servers MOTD, Status, Player count etc). Players who join the server are added to the ipcache.txt. While bots that use actual minecraft accounts
 can bypass this (as this plugin only deals with ping requets) it blocks most of the automated scanners (such as pythons mcscan pared with massscan). 
 
-Most scanners that use MC accounts typically ping the IP first to see if theirs a running server, so this may even prevent some advanced scanners. Instead of using of a blacklist approach (like [Anti Scan](https://modrinth.com/mod/antiscan), great plugin btw!) it uses a whitelist and blocks everything else as scanners can use new IP's or may not be in PebbleHosts system/other databases.
+Most scanners that use MC accounts typically ping the IP first to see if theirs a running server, so this may even prevent some advanced scanners. Instead of using of a blacklist approach (like [Anti Scan](https://modrinth.com/mod/antiscan), great plugin btw!) it uses a whitelist and blocks everything else as scanners can use new IP's or may not be in PebbleHosts system/other databases. Although a blacklist may not be whats right for you. If not try [Anti Scan](https://modrinth.com/mod/antiscan).
 
 This plugin has been tested on a small server I host, before this plugin there were many many scanners who constantly pinged the server, even tried to join. After I 
 changed the servers IP and added this plugin the rate is so much lower! This is because once automated scanners find a server they keep the IP in there database and continue to check it.
