@@ -1,4 +1,4 @@
-# Anti-MOTD-Scanner (AMS)
+# Anti-MOTD-Scanner AMS (Paper Version)
 ## Please view the FAQ!
 This plugin is meant for smaller PRIVATE servers that want to stay hidden (really helps cracked servers). It prevents ServerListPing events from people who have never joined the server. It prevents less specialized/advanced automatic 
 scanners from finding your server. It can't prevent TCP scans (change your defaut port from 25565) and it can't prevent more advanced scanners from joining with an account as this plugin does not interfere with the join process. This is a newer plugin, all suggestions are welcome!
@@ -74,6 +74,10 @@ Many scanners will try and join your server, maybe to greif? explore? be nice? T
 
 ## Testing
 Ive tested this using the methods real scanners use (mcstatus) and simple minecraft clients.
+
+![Server scanner when AMS is enabled VS disabled.](https://cdn.akjr.xyz/ams/ams-before-and-after-join.png)
+![What you see if your not in ipcache](https://cdn.akjr.xyz/ams/ams-in-action.png)
+![Mass Scan AMS](https://cdn.akjr.xyz/ams/amsmasscan.png)
 
 # Config File.
 Explanation on how to use the config is inside `config.yml` although heres a more in depth explanation;
