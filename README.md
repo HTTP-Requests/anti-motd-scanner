@@ -1,19 +1,21 @@
 # Anti-MOTD-Scanner AMS (Paper Version)
 This plugin is meant for smaller PRIVATE servers that want to stay hidden. It prevents ServerListPing events from people who have never joined the server. It prevents less specialized/advanced automatic 
 scanners from finding your server.  It can't prevent more advanced scanners from joining with an account as this plugin does not interfere with the join process. This is a newer plugin, all suggestions are welcome!
+Download at:
+https://modrinth.com/project/anti-motd-scanner
 **BUG REPORTS IN ISSUES PLEASE!**
 
 ## What this plugin CAN do:
 It can prevent automated scanners that dont join the server with a minecraft account. This plugin interrupts the ListServerPing event from clients that are not in ipcache.txt 
 (ServerListPing What sends clients the servers MOTD, Status, Player count etc). Players who join the server are added to the ipcache.txt. While bots that use actual minecraft accounts
 can bypass this (as this plugin only deals with ping requets) it blocks most of the automated scanners (such as pythons mcscan pared with masscan). Most scanners that use MC accounts
-typically ping the IP first to see if theres a running server, so this may even prevent some advanced scanners.
+typically ping the IP first to see if theirs a running server, so this may even prevent some advanced scanners.
 
 This plugin has been privately tested on a small server i host, before this plugin there were many many scanners who constantly pinged the server, even tried to join. After I 
 changed the servers IP and added this plugin the rate is so much lower! This is because once automated scanners find a server they keep the IP in there database and continue to check it.
 
 ## What this plugin CAN'T DO:
-It CAN'T prevent scanners that use a MC account from joining as theres no real way to tell whos a scanner and a real player, if there is this plugin does not do this.
+It CAN'T prevent scanners that use a MC account from joining as theirs no real way to tell whos a scanner and a real player, if there is this plugin does not do this.
 This plugin does not check if the IP is a VPN/PROXy, theres plenty of other plugins that do that.
 
 ## Why scanners are bad:
@@ -27,21 +29,33 @@ Many scanners will try and join your server, maybe to greif? explore? be nice? T
 `/ams-purge-cache` - Deletes content of ipcache.txt (you can also just delete the files data manually)
 
 # FAQ
-### If joining the server adds there IP to cache (whitelist)... what about scanners that use MC accounts?
-> As said before, this plugin doesnt deal with the client join proccess.
+**If joining the server adds there IP to cache (whitelist)... what about scanners that use MC accounts?**
+> As said before, this plugin doesn't deal with the client join process.
 
-### Is this meant for big servers with 100+ players or public servers?
+**Is this meant for big servers with 100+ players or public servers?**
 > No, if your server is public and you block ServerListPings players who have never joined/has a new IP will not see your motd. It is meant for private servers that wish to stay hidden?
 
-### Can I use ipcache as a whitelist and turn updating off when players join?
+**Can I use ipcache as a whitelist and turn updating off when players join?**
 > Yes, set enable-ipcache to false
 
-### What about players who have Dynamic IP's or join from VPNS?
+**What about players who have Dynamic IP's or join from VPNS?**
 > They will not be able to see the server's status before joining.
-> **NOTE**: Many scanners use VPN's to hide there IPs and the more VPN IP's that get added may slightly weaken this system. Concider adding an Anti VPN/PROXY plugin.
+> **NOTE**: Many scanners use VPN's to hide there IPs and the more VPN IP's that get added may slightly weaken this system, although there are many VPN IPs, Concider adding an Anti VPN/PROXY plugin.
+
+**Should i occasionally clear ipcache.txt if many players use VPNS/Dynamic IP's?**
+> There are 4 billion IP's chances are none of them will be eventually used by scanners. Although it cant hurt
+
+**Will there be a spigot version? My server runs spigot!**
+> Yes, there will be a spigotmc version soon.
+
+**What about versions below 1.21.8?**
+> If it is requested enough i may support 1.20.x, thats as low as I will go. Newer versions will be updated fast.
+
+**This is a dumb idea/i dont like how you did this**
+> Im new here, cut me some slack. Bug reports/suggestions are welcomed in issues.
 
 # Config File.
-Expnation on how to use the config is inside `config.yml` although heres a more in depth explnation;
+Explanation on how to use the config is inside `config.yml` although heres a more in depth explanation;
 
 #This blocks all pings that don't come from IP's inside ipcache.txt, for an IP to be inside this file the player must join or be manually added.
 `block-unknown-pings: true`
