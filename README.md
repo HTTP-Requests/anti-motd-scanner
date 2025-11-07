@@ -38,6 +38,15 @@ Many scanners will try and join your server, maybe to greif? explore? be nice? T
 
 `/ams-purge-cache` - Deletes content of ipcache.txt (you can also just delete the files data manually)
 
+## Testing
+Ive tested this using the methods real scanners use (mcstatus) and simple minecraft clients.
+
+**Server scanner when AMS is enabled VS disabled*:**<br>
+![Server scanner when AMS is enabled VS disabled.](https://cdn.akjr.xyz/ams/ams-before-and-after-join.png)
+
+**What you see if your not in ipcache:**<br>
+![What you see if your not in ipcache](https://cdn.akjr.xyz/ams/ams-in-action.png)<br>
+
 
 # FAQ
 **Why does this matter? So what if scanners have my servers IP i have a whitelist and it isnt cracked!**
@@ -77,15 +86,6 @@ Many scanners will try and join your server, maybe to greif? explore? be nice? T
 
 **Why did you make this?**
 > I operate a smaller private server and scanners kept pinging and trying to join the server, it is cracked with no longin plugins (per requested by owners) so i did something about it and decided to make it public.
-
-## Testing
-Ive tested this using the methods real scanners use (mcstatus) and simple minecraft clients.
-
-**Server scanner when AMS is enabled VS disabled*:**<br>
-![Server scanner when AMS is enabled VS disabled.](https://cdn.akjr.xyz/ams/ams-before-and-after-join.png)
-
-**What you see if your not in ipcache:**<br>
-![What you see if your not in ipcache](https://cdn.akjr.xyz/ams/ams-in-action.png)<br>
 
 
 # Config File.
