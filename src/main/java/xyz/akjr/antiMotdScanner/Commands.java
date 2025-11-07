@@ -17,7 +17,7 @@ public class Commands implements CommandExecutor {
         this.plugin = plugin;
         this.config = config;
     }
-    @SuppressWarnings({"deprecation", "experimental"})
+
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (command.getName().equalsIgnoreCase("ams-reload")) {
             if (sender.isOp()){
@@ -39,6 +39,7 @@ public class Commands implements CommandExecutor {
                 } catch (FileNotFoundException e) {
                     sender.sendMessage(ChatColor.GREEN + "Failed, ipache file not found. Did someone delete it? Restart the server and it should automatically re-generate.");
                 }
+                assert pw != null;
                 pw.close();
                 sender.sendMessage(ChatColor.GREEN + "Purged all IP Cache.");
             }

@@ -1,14 +1,8 @@
 package xyz.akjr.antiMotdScanner;
 
-import org.bukkit.command.PluginCommand;
 import org.bukkit.scheduler.BukkitRunnable;
 import com.comphenix.protocol.ProtocolLibrary;
 import com.comphenix.protocol.ProtocolManager;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.Objects;
 
 public class StartupManager {
@@ -30,9 +24,9 @@ public class StartupManager {
 
     private void registerCommands() {
         Commands commandExecutor = new Commands(plugin, config);
-        ((PluginCommand) Objects.requireNonNull(plugin.getCommand("ams"))).setExecutor(commandExecutor);
-        ((PluginCommand) Objects.requireNonNull(plugin.getCommand("ams-reload"))).setExecutor(commandExecutor);
-        ((PluginCommand) Objects.requireNonNull(plugin.getCommand("ams-purge-cache"))).setExecutor(commandExecutor);
+        Objects.requireNonNull(plugin.getCommand("ams")).setExecutor(commandExecutor);
+        Objects.requireNonNull(plugin.getCommand("ams-reload")).setExecutor(commandExecutor);
+        Objects.requireNonNull(plugin.getCommand("ams-purge-cache")).setExecutor(commandExecutor);
     }
 
     private void initializeConfig() {
@@ -50,7 +44,6 @@ public class StartupManager {
         if (protocolManager == null) {
             plugin.getLogger().severe("Failed to initialize ProtocolLib's ProtocolManager! Disabling plugin.");
             plugin.getServer().getPluginManager().disablePlugin(plugin);
-            return;
         }
     }
 
