@@ -1,4 +1,4 @@
-# Anti-MOTD-Scanner AMS (Paper Version)
+# Anti-MOTD-Scanner (AMS)
 ## Please view the FAQ!
 This plugin is meant for smaller PRIVATE servers that want to stay hidden (really helps cracked servers). It prevents ServerListPing events from people who have never joined the server. It prevents less specialized/advanced automatic 
 scanners from finding your server. It can't prevent TCP scans (change your defaut port from 25565) and it can't prevent more advanced scanners from joining with an account as this plugin does not interfere with the join process. This is a newer plugin, all suggestions are welcome!
@@ -63,8 +63,8 @@ Many scanners will try and join your server, maybe to greif? explore? be nice? T
 **Should i occasionally clear ipcache.txt if many players use VPNS/Dynamic IP's?**
 > There are 4 billion IP's chances are none of them will be eventually used by scanners. Although it cant hurt
 
-**Will there be a spigot version? My server runs spigot!**
-> Yes, there will be a spigotmc version soon.
+**Will there be a paper version? My server runs PaperMC/Purpur!**
+> This plugin is compatible with Paper/Purpur. If it ever needs 2 versions then i will make it.
 
 **What about versions below 1.21.8?**
 > If it is requested enough i may support 1.20.x, thats as low as I will go. Newer versions will be updated fast.
