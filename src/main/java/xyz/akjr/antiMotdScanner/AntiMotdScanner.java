@@ -60,6 +60,6 @@ public final class AntiMotdScanner extends JavaPlugin {
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        // None yet
     }
 }
