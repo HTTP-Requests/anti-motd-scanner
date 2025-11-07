@@ -102,24 +102,4 @@ log-all-motd-pings: true
 
 # Logs all blocked MOTD pings into blocked-motd-logs.txt
 log-blocked-motd-pings: true
-
-# If the same IP gets logged into the file more than once in order it will stack it with (x2 or x5)
-# This prevents the same message from being "spammed" many times. If you don't understand this set it to false.
-stack-same-ips: true
 ```
-
-Example with this setting off:<br>
-Blocked StatusRequest from 127.0.0.1<br>
-Blocked StatusRequest from 127.0.0.1<br>
-Blocked StatusRequest from 127.0.0.1<br>
-Blocked StatusRequest from 127.0.0.1<br>
-Blocked StatusRequest from 127.0.0.3<br>
-Blocked StatusRequest from 127.0.0.1<br>
-Blocked StatusRequest from 127.0.0.1<br>
-Blocked StatusRequest from 127.0.0.2<br>
-
-Example with this setting on:<br>
-Blocked StatusRequest from 127.0.0.1 (x3)<br>
-Blocked StatusRequest from 127.0.0.3<br>
-Blocked StatusRequest from 127.0.0.1 (x2)<br>
-Blocked StatusRequest from 127.0.0.2<br>
