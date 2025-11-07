@@ -6,6 +6,9 @@ scanners from finding your server. It can't prevent TCP scans (change your defau
 Download at:
 https://modrinth.com/project/anti-motd-scanner
 
+Requires:
+https://www.spigotmc.org/resources/protocollib.1997/
+
 **BUG REPORTS IN ISSUES PLEASE!**
 
 ## What this plugin CAN do:
