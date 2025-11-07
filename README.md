@@ -81,8 +81,6 @@ Ive tested this using the methods real scanners use (mcstatus) and simple minecr
 **What you see if your not in ipcache:**<br>
 ![What you see if your not in ipcache](https://cdn.akjr.xyz/ams/ams-in-action.png)<br>
 
-**Mass Scan Result:**<br>
-![Mass Scan AMS](https://cdn.akjr.xyz/ams/amsmasscan.png)
 
 # Config File.
 Explanation on how to use the config is inside `config.yml` although heres a more in depth explanation;
