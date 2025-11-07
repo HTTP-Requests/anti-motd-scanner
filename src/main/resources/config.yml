@@ -17,4 +17,4 @@ log-blocked-motd-pings: true
 
 # If the same IP gets logged into the file more than once in order it will stack it with (x2 or x5)
 # This prevents the same message from being "spammed" many times. If you don't understand this set it to false.
-stack-same-ips: true
+stack-same-ips: true # NOT YET IMPLEMENTED

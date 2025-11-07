@@ -7,21 +7,13 @@ import com.comphenix.protocol.events.ListenerPriority;
 import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
-import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.server.ServerListPingEvent;
-
-import javax.imageio.ImageIO;
-import java.awt.image.BufferedImage;
 import java.io.*;
 import java.net.InetSocketAddress;
 import java.nio.file.Files;
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -67,34 +59,42 @@ public class Network implements Listener {
     }
 
     private void blockStatusRequests() {
-        // Block handshake packets that are for STATUS requests only (nextState = 1)
-        // Allow login handshakes (nextState = 2) to pass through
+        // block STATUS requests only nextState = 1
+        // allow LOGIN nextState = 2
         protocolManager.addPacketListener(new PacketAdapter(plugin,
                 ListenerPriority.HIGHEST,
                 PacketType.Handshake.Client.SET_PROTOCOL) {
 
             @Override
             public void onPacketReceiving(PacketEvent event) {
+
+                //#################
+                //NOTICE: I don't think PingPacket and ServerListPing are used in server pings.
+                // Looks like StatusRequest is ever used, i will look into this. As long as it works.
+                //#################
+
                 if (event.isCancelled()) return;
+                boolean logMotds = configManager.getConfig().getBoolean("log-all-motd-pings", true);
                 boolean smartDisable = configManager.getConfig().getBoolean("block-unknown-pings", true);
+                String clientIP = getClientIP(event);
+                if (logMotds) {
+                    logMotdPing(clientIP);
+                }
                 if (!smartDisable) return;
                 try {
                     PacketContainer packet = event.getPacket();
-                    // 1 = Status request (server list ping)
-                    // 2 = Login request (actual player joining)
                     int nextState = packet.getIntegers().read(1);
 
-                    if (nextState == 1) { // status request (server list ping)
+                    if (nextState == 1) { // server list ping
                         reloadCachedIPs();
-                        String clientIP = getClientIP(event);
                         if (!isCachedIP(clientIP)) {
                             event.setCancelled(true);
                             log("Blocked ServerListPing from " + clientIP);
                         }
                     }
 
-                } catch (Exception e) {
-                    plugin.getLogger().log(Level.WARNING, "Error processing handshake packet", e);
+                } catch (Exception ex) {
+                    plugin.getLogger().log(Level.WARNING, "Error processing packet", ex);
                 }
             }
         });
@@ -131,7 +131,6 @@ public class Network implements Listener {
                 if (!isCachedIP(clientIP)) {
                     event.setCancelled(true);
                     log("Blocked PingPacket from " + clientIP);
-                    return; // Don't disconnect, just cancel
                 }
             }
         });
@@ -155,8 +154,8 @@ public class Network implements Listener {
     }
 
     private void log(String message) {
-        String lastMessage = null;
-        int repeatCount = 1;
+        String lastMessage = null; //Will be added in the next ver
+        int repeatCount = 1; //Will be added in the next ver
         try {
             File logFile = new File(plugin.getDataFolder(), "/ip-data/blocked-motd-logs.txt");
             if (!logFile.exists()) {
@@ -173,15 +172,6 @@ public class Network implements Listener {
             out.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
-    }
-
-    @EventHandler
-    public void onServerListPing(ServerListPingEvent event) {
-        String playerIp = event.getAddress().getHostAddress();
-        boolean logMotds = this.configManager.getConfig().getBoolean("log-all-motd-pings", true);
-        if (logMotds) {
-            logMotdPing(playerIp);
         }
     }
 
