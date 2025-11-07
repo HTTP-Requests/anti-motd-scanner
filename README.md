@@ -1,7 +1,8 @@
 # Anti-MOTD-Scanner AMS
 ## Please view the FAQ!
-This plugin is meant for smaller PRIVATE servers that want to stay hidden (really helps cracked servers). It prevents ServerListPing events from people who have never joined the server. It prevents less specialized/advanced automatic 
-scanners from finding your server. It can't prevent TCP scans (change your defaut port from 25565) and it can't prevent more advanced scanners from joining with an account as this plugin does not interfere with the join process. This is a newer plugin, all suggestions are welcome!
+This plugin is meant for smaller private servers that want to stay hidden. It prevents Server Ping events from IP's who have never joined the server before. It prevents scanners from finding your server. It can't prevent TCP scans (change your defaut port from 25565) and it can't prevent more advanced scanners from joining with an account as this plugin does not interfere with the join process. This is a newer plugin, all suggestions are welcome!
+
+<hr>
 
 Download at:
 https://modrinth.com/project/anti-motd-scanner
@@ -11,13 +12,16 @@ https://www.spigotmc.org/resources/protocollib.1997/
 
 **BUG REPORTS IN ISSUES PLEASE!**
 
-## What this plugin CAN do:
-It can prevent automated scanners that dont join the server with a minecraft account. This plugin interrupts the ListServerPing event from clients that are not in ipcache.txt 
-(ServerListPing What sends clients the servers MOTD, Status, Player count etc). Players who join the server are added to the ipcache.txt. While bots that use actual minecraft accounts
-can bypass this (as this plugin only deals with ping requets) it blocks most of the automated scanners (such as pythons mcscan pared with masscan).Most scanners that use MC accounts
-typically ping the IP first to see if theirs a running server, so this may even prevent some advanced scanners.
+<hr>
 
-This plugin has been privately tested on a small server i host, before this plugin there were many many scanners who constantly pinged the server, even tried to join. After I 
+## What this plugin CAN do:
+It can prevent automated scanners that don't join the server with a minecraft account. This plugin interrupts the ListServerPing and StatusRequest events from clients that are not in `/ip-data/ipcache.txt` 
+(ServerListPing/StatusRequest What sends clients the servers MOTD, Status, Player count etc). Players who join the server are added to the ipcache.txt. While bots that use actual minecraft accounts
+can bypass this (as this plugin only deals with ping requets) it blocks most of the automated scanners (such as pythons mcscan pared with massscan). 
+
+Most scanners that use MC accounts typically ping the IP first to see if theirs a running server, so this may even prevent some advanced scanners. Instead of using of a blacklist approach (like [Anti Scan](https://modrinth.com/mod/antiscan), great plugin btw!) it uses a whitelist and blocks everything else as scanners can use new IP's or may not be in PebbleHosts system/other databases.
+
+This plugin has been tested on a small server I host, before this plugin there were many many scanners who constantly pinged the server, even tried to join. After I 
 changed the servers IP and added this plugin the rate is so much lower! This is because once automated scanners find a server they keep the IP in there database and continue to check it.
 
 ## What this plugin CAN'T DO:
@@ -42,10 +46,10 @@ Many scanners will try and join your server, maybe to greif? explore? be nice? T
 Ive tested this using the methods real scanners use (mcstatus) and simple minecraft clients.
 
 **Server scanner when AMS is enabled VS disabled*:**<br>
-![Server scanner when AMS is enabled VS disabled.](https://cdn.akjr.xyz/ams/ams-before-and-after-join.png)
+![Server scanner when AMS is enabled VS disabled.](https://cdn.modrinth.com/data/cached_images/238924445f31224b054063bd51ef4bda5b9f56a0_0.webp)
 
 **What you see if your not in ipcache:**<br>
-![What you see if your not in ipcache](https://cdn.akjr.xyz/ams/ams-in-action.png)<br>
+![What you see if your not in ipcache](https://cdn.modrinth.com/data/cached_images/c6574fd9e94e6f3905a10803ffe166b3a98bb7d0.png)<br>
 
 
 # FAQ
