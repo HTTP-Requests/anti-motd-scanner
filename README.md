@@ -1,18 +1,16 @@
-# Anti-MOTD-Scanner AMS
-## Please view the FAQ!
+# Anti MOTD Scanner (AMS)
+
+**Please view the FAQ!**
+
 This plugin is meant for smaller private servers that want to stay hidden. It prevents Server Ping events from IP's who have never joined the server before. It prevents scanners from finding your server. It can't prevent TCP scans (change your defaut port from 25565) and it can't prevent more advanced scanners from joining with an account as this plugin does not interfere with the join process. This is a newer plugin, all suggestions are welcome!
 
 <hr>
-
-Download at:
-https://modrinth.com/project/anti-motd-scanner
 
 Requires:
 https://www.spigotmc.org/resources/protocollib.1997/
 
 **BUG REPORTS IN ISSUES PLEASE!**
 
-<hr>
 
 ## What this plugin CAN do:
 It can prevent automated scanners that don't join the server with a minecraft account. This plugin interrupts the ListServerPing and StatusRequest events from clients that are not in `/ip-data/ipcache.txt` 
@@ -24,25 +22,29 @@ Most scanners that use MC accounts typically ping the IP first to see if theirs 
 This plugin has been tested on a small server I host, before this plugin there were many many scanners who constantly pinged the server, even tried to join. After I 
 changed the servers IP and added this plugin the rate is so much lower! This is because once automated scanners find a server they keep the IP in there database and continue to check it.
 
+
 ## What this plugin CAN'T DO:
 It CAN'T prevent scanners that use a MC account from joining as theirs no real way to tell whos a scanner and a real player, if there is this plugin does not do this.
 This plugin does not check if the IP is a VPN/PROX, theres plenty of other plugins that do that.
 
-## Why scanners are bad/why this matters:
+**Why scanners are bad/why this matters:**
 It may not matter for you, depends if you care.
 Many scanners are used by malicious actors or just curious players. Ive used massscan & mcstatus to scan servers before (thankfully not for malicious reasons) and ive got 1000s of servers, its really easy. This plugin is meant to take out the lower level script kiddie type scanners and even automated campaigns. If your server can't use a whitelist for whatever reason or is cracked with no login plugin (for whatever reason) this may help.
 
 
 Many scanners will try and join your server, maybe to greif? explore? be nice? There is no way to know and it only takes 1 to ruin the day.
 
-## Commands
+<hr>
+
+**Commands**
+
 `/ams` - Info command
 
 `/ams-reload` - Reloads the config, requires OP
 
 `/ams-purge-cache` - Deletes content of ipcache.txt (you can also just delete the files data manually)
 
-## Testing
+**Testing**
 Ive tested this using the methods real scanners use (mcstatus) and simple minecraft clients.
 
 **Server scanner when AMS is enabled VS disabled*:**<br>
@@ -52,7 +54,7 @@ Ive tested this using the methods real scanners use (mcstatus) and simple minecr
 ![What you see if your not in ipcache](https://cdn.modrinth.com/data/cached_images/c6574fd9e94e6f3905a10803ffe166b3a98bb7d0.png)<br>
 
 
-# FAQ
+**FAQ**
 **Why does this matter? So what if scanners have my servers IP i have a whitelist and it isnt cracked!**
 > Don't want it? Then dont install it. This is helpful for;
 > - Servers that don't have a whitelist
@@ -85,14 +87,18 @@ Ive tested this using the methods real scanners use (mcstatus) and simple minecr
 **What about versions below 1.21.8?**
 > If it is requested enough i may support 1.20.x, thats as low as I will go. Newer versions will be updated fast.
 
-**This is a dumb idea/i dont like how you did this**
+**This is a dumb idea/I dont like how you did this**
 > Im new here, cut me some slack. Bug reports/suggestions are welcomed in issues.
 
 **Why did you make this?**
 > I operate a smaller private server and scanners kept pinging and trying to join the server, it is cracked with no longin plugins (per requested by owners) so i did something about it and decided to make it public.
 
 
-# Config File.
+## Known Issues:
+This plugin will not allow players to use ViaFabricPlus's "Detect Version" and will have to automaticlly select a version.
+
+
+## Config File.
 Explanation on how to use the config is inside `config.yml` although heres a more in depth explanation;
 ```yml
 # This blocks all pings that don't come from IP's inside ipcache.txt, for an IP to be inside
