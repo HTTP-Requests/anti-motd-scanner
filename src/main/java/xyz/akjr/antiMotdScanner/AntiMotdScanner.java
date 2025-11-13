@@ -39,15 +39,23 @@ public final class AntiMotdScanner extends JavaPlugin {
             bw.write("");
             bw.close();
         }
-        catch (IOException e){ e.printStackTrace(); }
+        catch (IOException e){ getLogger().severe("Can't create log file:\n" + e); }
         try{
             File file = new File(directory + "/motd-ping-logs.txt");
             FileWriter fw = new FileWriter(file.getAbsoluteFile());
             BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("# Logs from all motd pings (blocked or allowed), data generated here is controlled by 'log-all-motd-pings'\n");
+            bw.write("# Logs for all motd pings (blocked or allowed), data generated here is controlled by 'log-all-motd-pings'\n");
             bw.close();
         }
-        catch (IOException e){ e.printStackTrace(); }
+        catch (IOException e){ getLogger().severe("Can't create log file:\n" + e); }
+        try{
+            File file = new File(directory + "/ip-join-logs.txt");
+            FileWriter fw = new FileWriter(file.getAbsoluteFile());
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write("# Logs for all accepted player joins, data generated here is controlled by 'log-join-ips'\n");
+            bw.close();
+        }
+        catch (IOException e){ getLogger().severe("Can't create log file:\n" + e); }
         try{
             File file = new File(directory + "/blocked-motd-logs.txt");
             FileWriter fw = new FileWriter(file.getAbsoluteFile());
@@ -55,7 +63,7 @@ public final class AntiMotdScanner extends JavaPlugin {
             bw.write("# Logs all blocked motd pings, data generated here is controlled by 'log-blocked-motd-pings'\n");
             bw.close();
         }
-        catch (IOException e){ e.printStackTrace(); }
+        catch (IOException e){ getLogger().severe("Can't create log file:\n" + e); }
     }
 
     @Override

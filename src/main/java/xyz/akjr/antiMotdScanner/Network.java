@@ -7,9 +7,11 @@ import com.comphenix.protocol.events.ListenerPriority;
 import com.comphenix.protocol.events.PacketAdapter;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.events.PacketEvent;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.server.ServerListPingEvent;
 import java.io.*;
 import java.net.InetSocketAddress;
@@ -55,6 +57,28 @@ public class Network implements Listener {
             cachedIPs.removeIf(ip -> ip.trim().isEmpty());
         } catch (IOException e) {
             plugin.getLogger().log(Level.SEVERE, "Could not load /ip-data/ipcache.txt", e);
+        }
+    }
+
+    @EventHandler
+    public void onPlayerLogin(PlayerLoginEvent event) {
+        boolean logIpsToFile = this.configManager.getConfig().getBoolean("log-join-ips", false);
+        if (logIpsToFile) {
+            Player player = event.getPlayer();
+            try {
+                File logFile = new File(plugin.getDataFolder(), "/ip-data/ip-join-logs.txt");
+                if (!logFile.exists()) {
+                    logFile.createNewFile();
+                }
+                FileWriter fw = new FileWriter(logFile, true);
+                BufferedWriter bw = new BufferedWriter(fw);
+                PrintWriter out = new PrintWriter(bw);
+                String timestamp = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new java.util.Date());
+                out.println("[" + timestamp + "] - " + player.getName() + " - " + player.getUniqueId() + " - [" + event.getAddress().getHostAddress() + "]");
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 

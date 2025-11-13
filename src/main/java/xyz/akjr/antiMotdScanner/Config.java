@@ -30,6 +30,7 @@ public class Config {
         this.config.addDefault("enable-ipcache", true);
         this.config.addDefault("log-all-motd-pings", true);
         this.config.addDefault("log-blocked-motd-pings", true);
+        this.config.addDefault("log-join-ips", true);
 
         this.config.options().copyDefaults(true);
         try {

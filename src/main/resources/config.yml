@@ -14,3 +14,6 @@ log-all-motd-pings: true
 
 # Logs all blocked MOTD pings into blocked-motd-logs.txt
 log-blocked-motd-pings: true
+
+# Logs all IP join logs to ip-join-logs.txt
+log-join-ips: true
