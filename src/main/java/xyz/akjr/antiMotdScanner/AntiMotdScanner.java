@@ -29,41 +29,28 @@ public final class AntiMotdScanner extends JavaPlugin {
 
     public void setup(){
         File directory = new File(getDataFolder() + "/ip-data/");
-        if (! directory.exists()){
+        if (!directory.exists()){
             directory.mkdir();
         }
-        try{
-            File file = new File(directory + "/ipcache.txt");
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("");
-            bw.close();
+
+        createIfAbsent(directory, "ipcache.txt", "");
+        createIfAbsent(directory, "motd-ping-logs.txt",
+                "# Logs for all motd pings (blocked or allowed), data generated here is controlled by 'log-all-motd-pings'\n");
+        createIfAbsent(directory, "ip-join-logs.txt",
+                "# Logs for all accepted player joins, data generated here is controlled by 'log-join-ips'\n");
+        createIfAbsent(directory, "blocked-motd-logs.txt",
+                "# Logs all blocked motd pings, data generated here is controlled by 'log-blocked-motd-pings'\n");
+    }
+
+    private void createIfAbsent(File directory, String filename, String initialContent) {
+        File file = new File(directory, filename);
+        if (!file.exists()) {
+            try (BufferedWriter bw = new BufferedWriter(new FileWriter(file))) {
+                bw.write(initialContent);
+            } catch (IOException e) {
+                getLogger().severe("Can't create file " + filename + ":\n" + e);
+            }
         }
-        catch (IOException e){ getLogger().severe("Can't create log file:\n" + e); }
-        try{
-            File file = new File(directory + "/motd-ping-logs.txt");
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("# Logs for all motd pings (blocked or allowed), data generated here is controlled by 'log-all-motd-pings'\n");
-            bw.close();
-        }
-        catch (IOException e){ getLogger().severe("Can't create log file:\n" + e); }
-        try{
-            File file = new File(directory + "/ip-join-logs.txt");
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("# Logs for all accepted player joins, data generated here is controlled by 'log-join-ips'\n");
-            bw.close();
-        }
-        catch (IOException e){ getLogger().severe("Can't create log file:\n" + e); }
-        try{
-            File file = new File(directory + "/blocked-motd-logs.txt");
-            FileWriter fw = new FileWriter(file.getAbsoluteFile());
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write("# Logs all blocked motd pings, data generated here is controlled by 'log-blocked-motd-pings'\n");
-            bw.close();
-        }
-        catch (IOException e){ getLogger().severe("Can't create log file:\n" + e); }
     }
 
     @Override
